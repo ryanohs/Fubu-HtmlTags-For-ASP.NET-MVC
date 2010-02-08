@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{38B6E894-77A9-4BA3-9845-E708EAF920DC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HtmlTags.Adapter</RootNamespace>
+    <AssemblyName>HtmlTags.Adapter</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core, Version=1.2.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Castle\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.MicroKernel, Version=2.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Castle\Castle.MicroKernel.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=2.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Castle\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlTags, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\HtmlTags.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Common Service Locator\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DynamicInputExtensions.cs" />
+    <Compile Include="Fubu\Configuration\AccessorDef.cs" />
+    <Compile Include="Fubu\Configuration\DefaultHtmlConventions.cs" />
+    <Compile Include="Fubu\Configuration\ElementRequest.cs" />
+    <Compile Include="Fubu\Configuration\Interfaces.cs" />
+    <Compile Include="Fubu\Configuration\LambdaElementBuilder.cs" />
+    <Compile Include="Fubu\Configuration\LambdaElementModifier.cs" />
+    <Compile Include="Fubu\Forms\DefinitionListLabelAndField.cs" />
+    <Compile Include="Fubu\Forms\FormLineExpression.cs" />
+    <Compile Include="Fubu\Forms\ILabelAndFieldLayout.cs" />
+    <Compile Include="Fubu\Accessor.cs" />
+    <Compile Include="Fubu\BasicExtensions.cs" />
+    <Compile Include="Fubu\Cache.cs" />
+    <Compile Include="Fubu\ExpressionsExtensions.cs" />
+    <Compile Include="Fubu\FubuException.cs" />
+    <Compile Include="Fubu\HtmlConventionRegistry.cs" />
+    <Compile Include="Fubu\PropertyChain.cs" />
+    <Compile Include="Fubu\ReflectionHelper.cs" />
+    <Compile Include="Fubu\SingleProperty.cs" />
+    <Compile Include="Fubu\Stringifier.cs" />
+    <Compile Include="Fubu\TypeExtensions.cs" />
+    <Compile Include="Configuration\HtmlTagsRegistry.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Configuration\RegistryBase.cs" />
+    <Compile Include="Fubu\Tags\TagActionExpression.cs" />
+    <Compile Include="Fubu\Tags\TagFactory.cs" />
+    <Compile Include="Fubu\Tags\TagFactoryExpression.cs" />
+    <Compile Include="Fubu\Tags\TagGenerator.cs" />
+    <Compile Include="Fubu\Tags\TagProfile.cs" />
+    <Compile Include="Fubu\Tags\TagProfileExpression.cs" />
+    <Compile Include="Fubu\Tags\TagProfileLibrary.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
