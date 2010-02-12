@@ -68,7 +68,6 @@
   <ItemGroup>
     <Compile Include="DynamicInputExtensions.cs" />
     <Compile Include="Fubu\Configuration\AccessorDef.cs" />
-    <Compile Include="Fubu\Configuration\DefaultHtmlConventions.cs" />
     <Compile Include="Fubu\Configuration\ElementRequest.cs" />
     <Compile Include="Fubu\Configuration\Interfaces.cs" />
     <Compile Include="Fubu\Configuration\LambdaElementBuilder.cs" />

@@ -5,13 +5,13 @@ using FubuMVC.UI.Tags;
 
 namespace FubuMVC.UI
 {
-    public class HtmlConventionRegistry : TagProfileExpression
+    public class HtmlConventions : TagProfileExpression
     {
         private readonly Cache<string, TagProfile> _profiles =
             new Cache<string, TagProfile>(name => new TagProfile(name));
 
 
-        public HtmlConventionRegistry()
+        public HtmlConventions()
             : base(new TagProfile(TagProfile.DEFAULT))
         {
             _profiles[TagProfile.DEFAULT] = profile;

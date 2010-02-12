@@ -1,5 +1,6 @@
 using System;
 using Castle.MicroKernel.Registration;
+using Castle.Windsor;
 using FubuMVC.UI;
 using FubuMVC.UI.Configuration;
 using FubuMVC.UI.Tags;
@@ -12,16 +13,17 @@ namespace HtmlTags.Adapter.Configuration
 		{
 			_(Component.For<IElementNamingConvention>().ImplementedBy<DefaultElementNamingConvention>());
 			_(Component.For<Stringifier>().ImplementedBy<Stringifier>());
-			_(Component.For(typeof(ITagGenerator<>)).ImplementedBy(typeof(TagGenerator<>)));
-
-			SetupTagProfileLibrary();
+			_(Component.For(typeof (ITagGenerator<>)).ImplementedBy(typeof (TagGenerator<>)));
+			_(Component.For<TagProfileLibrary>().LifeStyle.Singleton);
 		}
 
-		private void SetupTagProfileLibrary()
+		public override void AddRegistrationsToContainer(IWindsorContainer container)
 		{
-			var library = new TagProfileLibrary();
-			library.ImportRegistry(new DefaultHtmlConventions());
-			_(Component.For<TagProfileLibrary>().Instance(library));
+			base.AddRegistrationsToContainer(container);
+
+			var library = container.Resolve<TagProfileLibrary>();
+			var conventions = container.ResolveAll<HtmlConventions>();
+			Array.ForEach(conventions, library.ImportRegistry);
 		}
 	}
 }

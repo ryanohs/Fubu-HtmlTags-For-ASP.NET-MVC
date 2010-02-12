@@ -83,6 +83,9 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application\CustomHtmlConventions.cs" />
+    <Compile Include="Application\DefaultHtmlConventions.cs" />
+    <Compile Include="Application\HtmlConventionRegistry.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

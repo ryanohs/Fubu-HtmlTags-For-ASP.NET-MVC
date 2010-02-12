@@ -16,7 +16,7 @@ namespace FubuMVC.UI.Tags
             _profiles[profile.Name].Import(profile);
         }
 
-        public void ImportRegistry(HtmlConventionRegistry registry)
+        public void ImportRegistry(HtmlConventions registry)
         {
             registry.Profiles.Each(ImportProfile);
         }
