@@ -22,7 +22,7 @@ namespace HtmlTags.Adapter.Configuration
 			base.AddRegistrationsToContainer(container);
 
 			var library = container.Resolve<TagProfileLibrary>();
-			var conventions = container.ResolveAll<HtmlConventions>();
+			var conventions = container.ResolveAll<HtmlConventionRegistry>();
 			Array.ForEach(conventions, library.ImportRegistry);
 		}
 	}

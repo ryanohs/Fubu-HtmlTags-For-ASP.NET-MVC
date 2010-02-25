@@ -4,12 +4,12 @@ using HtmlTags.Adapter.Configuration;
 
 namespace WebTest.Application
 {
-	public class HtmlConventionRegistry : RegistryBase
+	public class LocalHtmlConventionRegistry : RegistryBase
 	{
-		public HtmlConventionRegistry()
+		public LocalHtmlConventionRegistry()
 		{
-			_(Component.For<HtmlConventions>().ImplementedBy<CustomHtmlConventions>());
-			_(Component.For<HtmlConventions>().ImplementedBy<DefaultHtmlConventions>());
+			_(Component.For<HtmlConventionRegistry>().ImplementedBy<CustomHtmlConventions>());
+			_(Component.For<HtmlConventionRegistry>().ImplementedBy<DefaultHtmlConventions>());
 		}
 	}
 }

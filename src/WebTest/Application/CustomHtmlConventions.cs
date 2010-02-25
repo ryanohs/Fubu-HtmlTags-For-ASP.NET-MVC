@@ -3,7 +3,7 @@ using FubuMVC.UI;
 
 namespace WebTest.Application
 {
-	public class CustomHtmlConventions : HtmlConventions
+	public class CustomHtmlConventions : HtmlConventionRegistry
 	{
 		public CustomHtmlConventions()
 		{

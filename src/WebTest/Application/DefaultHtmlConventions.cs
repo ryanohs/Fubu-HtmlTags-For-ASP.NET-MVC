@@ -1,11 +1,11 @@
-using FubuMVC.UI;
-using FubuMVC.UI.Configuration;
-using FubuMVC.UI.Tags;
-using HtmlTags;
-
 namespace WebTest.Application
 {
-	public class DefaultHtmlConventions : HtmlConventions
+	using FubuMVC.UI;
+	using FubuMVC.UI.Configuration;
+	using FubuMVC.UI.Tags;
+	using HtmlTags;
+
+	public class DefaultHtmlConventions : HtmlConventionRegistry
 	{
 		public DefaultHtmlConventions()
 		{
