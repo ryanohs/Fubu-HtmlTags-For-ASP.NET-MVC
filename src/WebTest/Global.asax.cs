@@ -31,8 +31,8 @@ namespace WebTest
 			RegisterRoutes(RouteTable.Routes);
 
 			var container = new WindsorContainer();
-			new LocalHtmlConventionRegistry().AddRegistrationsToContainer(container); // must be before HtmlTagsRegistry.
-			new HtmlTagsRegistry().AddRegistrationsToContainer(container);
+			LocalHtmlConventionRegistry.AddRegistrationsToContainer(container); // must be before HtmlTagsRegistry.
+			HtmlTagsRegistry.AddRegistrationsToContainer(container);
 			ServiceLocator.SetLocatorProvider(() => new WindsorServiceLocator(container));
 			container.Register(Component.For<IServiceLocator>().Instance(ServiceLocator.Current).LifeStyle.Singleton);
 		}

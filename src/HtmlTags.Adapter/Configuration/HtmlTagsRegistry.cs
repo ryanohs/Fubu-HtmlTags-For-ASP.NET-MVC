@@ -1,4 +1,3 @@
-using System;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using FubuMVC.UI;
@@ -7,23 +6,18 @@ using FubuMVC.UI.Tags;
 
 namespace HtmlTags.Adapter.Configuration
 {
-	public class HtmlTagsRegistry : RegistryBase
+	public static class HtmlTagsRegistry
 	{
-		public HtmlTagsRegistry()
+		public static void AddRegistrationsToContainer(IWindsorContainer container)
 		{
-			_(Component.For<IElementNamingConvention>().ImplementedBy<DefaultElementNamingConvention>());
-			_(Component.For<Stringifier>().ImplementedBy<Stringifier>());
-			_(Component.For(typeof (ITagGenerator<>)).ImplementedBy(typeof (TagGenerator<>)));
-			_(Component.For<TagProfileLibrary>().LifeStyle.Singleton);
-		}
-
-		public override void AddRegistrationsToContainer(IWindsorContainer container)
-		{
-			base.AddRegistrationsToContainer(container);
+            container.Register(Component.For<IElementNamingConvention>().ImplementedBy<DefaultElementNamingConvention>());
+            container.Register(Component.For<Stringifier>().ImplementedBy<Stringifier>());
+            container.Register(Component.For(typeof(ITagGenerator<>)).ImplementedBy(typeof(TagGenerator<>)));
+            container.Register(Component.For<TagProfileLibrary>().LifeStyle.Singleton);
 
 			var library = container.Resolve<TagProfileLibrary>();
-			var conventions = container.ResolveAll<HtmlConventionRegistry>();
-			Array.ForEach(conventions, library.ImportRegistry);
+			var conventions = container.Resolve<HtmlConventionRegistry>();
+			library.ImportRegistry(conventions);
 		}
 	}
 }

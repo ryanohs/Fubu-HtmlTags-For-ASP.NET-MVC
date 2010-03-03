@@ -1,15 +1,14 @@
 using Castle.MicroKernel.Registration;
+using Castle.Windsor;
 using FubuMVC.UI;
-using HtmlTags.Adapter.Configuration;
 
 namespace WebTest.Application
 {
-	public class LocalHtmlConventionRegistry : RegistryBase
+	public static class LocalHtmlConventionRegistry
 	{
-		public LocalHtmlConventionRegistry()
+		public static void AddRegistrationsToContainer(IWindsorContainer container)
 		{
-			_(Component.For<HtmlConventionRegistry>().ImplementedBy<CustomHtmlConventions>());
-			_(Component.For<HtmlConventionRegistry>().ImplementedBy<DefaultHtmlConventions>());
+			container.Register(Component.For<HtmlConventionRegistry>().ImplementedBy<CustomHtmlConventions>());
 		}
 	}
 }
