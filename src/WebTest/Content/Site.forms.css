@@ -1,0 +1,115 @@
+#fields,
+div.fields
+{
+}
+
+#fields .field,
+div.fields .field
+{
+	margin-bottom: 10px;
+}
+
+#fields p,
+div.fields p
+{
+    margin: 2px 12px 10px 10px;
+}
+
+#fields span.label,
+div.fields span.label
+{
+    display: block;
+	clear:both;
+}
+
+#fields label,
+div.fields label
+{
+    display: block;
+}
+
+#fields label.inline,
+div.fields label.inline
+{
+    display: inline;
+}
+
+#fields input, 
+#fields select,
+div.fields input,
+div.fields select
+{
+	margin-left: 3px;
+}
+
+select
+{
+	font-family: "Trebuchet MS",sans-serif;
+    border: 1px solid #CCC;	
+    padding: 4px 8px;
+}
+
+input[type="text"]
+{
+    width: 200px;
+    border: 1px solid #CCC;
+    padding: 4px 8px;
+}
+
+textarea
+{
+    width: 400px;
+    border: 1px solid #CCC;
+    padding: 4px 8px;
+    font-family: Arial;
+}
+
+input[type="password"]
+{
+    width: 200px;
+    border: 1px solid #CCC;
+    padding: 0.25em 0.5em;
+    padding: 4px 8px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus
+{
+	background-color: #DDD;
+	padding: 3px 7px;
+ 	border: 2px solid #999;
+}
+
+.field-validation-error
+{
+	color: #ff0000;
+}
+
+input[type="text"].input-validation-error, 
+input[type="password"].input-validation-error, 
+#fields select.input-validation-error,
+div.fields select.input-validation-error
+{
+    border: 2px solid #ff0000;
+	padding: 3px 7px;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors
+{
+    font-weight: bold;
+    color: #ff0000;
+    background-color: #ff9999;
+}
+
+fieldset
+{
+	border: solid 1px #CCC;
+}
+
+fieldset legend
+{
+	color: #565656;
+}
